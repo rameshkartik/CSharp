@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="master" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=AAEINCN130814D;Initial Catalog=master;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="masterConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Employees" ThisKey="ID" OtherKey="DEPTNO" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmpNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Mgr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hiredate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Sal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Comm" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DEPTNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Department_Employee" Member="Department" ThisKey="DEPTNO" OtherKey="ID" Type="Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
