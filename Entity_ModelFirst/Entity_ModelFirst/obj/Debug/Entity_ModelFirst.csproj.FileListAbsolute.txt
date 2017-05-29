@@ -1,0 +1,6 @@
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\bin\Entity_ModelFirst.dll
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\bin\Entity_ModelFirst.pdb
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\bin\EntityFramework.dll
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\bin\EntityFramework.xml
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\obj\Debug\Entity_ModelFirst.dll
+D:\Projects\Energetic Scrummies\Techies\WCF Articles\WCF Articles\2015\Entity_ModelFirst\Entity_ModelFirst\obj\Debug\Entity_ModelFirst.pdb

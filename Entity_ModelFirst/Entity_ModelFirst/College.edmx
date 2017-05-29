@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="College.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CollegeStoreContainer">
+    <EntitySet Name="Universities" EntityType="College.Store.Universities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UColleges" EntityType="College.Store.UColleges" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UniversityUCollege" Association="College.Store.UniversityUCollege">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="UCollege" EntitySet="UColleges" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UColleges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollegeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoOfDepts" Type="int" Nullable="false" />
+    <Property Name="PrincipalName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UniversityId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UniversityUCollege">
+    <End Role="University" Type="College.Store.Universities" Multiplicity="1" />
+    <End Role="UCollege" Type="College.Store.UColleges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UCollege">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="College" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="CollegeContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Universities" EntityType="College.University" />
+          <EntitySet Name="UColleges" EntityType="College.UCollege" />
+          <AssociationSet Name="UniversityUCollege" Association="College.UniversityUCollege">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="UCollege" EntitySet="UColleges" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UniversityName" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" />
+          <NavigationProperty Name="UColleges" Relationship="College.UniversityUCollege" FromRole="University" ToRole="UCollege" />
+        </EntityType>
+        <EntityType Name="UCollege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CollegeName" Nullable="false" />
+          <Property Type="Int32" Name="NoOfDepts" Nullable="false" />
+          <Property Type="String" Name="PrincipalName" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="College.UniversityUCollege" FromRole="UCollege" ToRole="University" />
+          <Property Type="Int32" Name="UniversityId" Nullable="false" />
+        </EntityType>
+        <Association Name="UniversityUCollege">
+          <End Type="College.University" Role="University" Multiplicity="1" />
+          <End Type="College.UCollege" Role="UCollege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UCollege">
+              <PropertyRef Name="UniversityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CollegeStoreContainer" CdmEntityContainer="CollegeContainer">
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="IsTypeOf(College.University)">
+        <MappingFragment StoreEntitySet="Universities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UColleges">
+      <EntityTypeMapping TypeName="IsTypeOf(College.UCollege)">
+        <MappingFragment StoreEntitySet="UColleges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+          <ScalarProperty Name="NoOfDepts" ColumnName="NoOfDepts" />
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

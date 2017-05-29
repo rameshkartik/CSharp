@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="College.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CollegeStoreContainer">
+    <EntitySet Name="Universities" EntityType="College.Store.Universities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UColleges" EntityType="College.Store.UColleges" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UniversityUCollege" Association="College.Store.UniversityUCollege">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="UCollege" EntitySet="UColleges" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniversityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UColleges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollegeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoOfDepts" Type="int" Nullable="false" />
+    <Property Name="PrincipalName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UniversityId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UniversityUCollege">
+    <End Role="University" Type="College.Store.Universities" Multiplicity="1" />
+    <End Role="UCollege" Type="College.Store.UColleges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UCollege">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

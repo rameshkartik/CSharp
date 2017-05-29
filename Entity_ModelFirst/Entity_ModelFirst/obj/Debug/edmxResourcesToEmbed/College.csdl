@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="College" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="CollegeContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Universities" EntityType="College.University" />
+    <EntitySet Name="UColleges" EntityType="College.UCollege" />
+    <AssociationSet Name="UniversityUCollege" Association="College.UniversityUCollege">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="UCollege" EntitySet="UColleges" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UniversityName" Nullable="false" />
+    <Property Type="String" Name="Location" Nullable="false" />
+    <NavigationProperty Name="UColleges" Relationship="College.UniversityUCollege" FromRole="University" ToRole="UCollege" />
+  </EntityType>
+  <EntityType Name="UCollege">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CollegeName" Nullable="false" />
+    <Property Type="Int32" Name="NoOfDepts" Nullable="false" />
+    <Property Type="String" Name="PrincipalName" Nullable="false" />
+    <NavigationProperty Name="University" Relationship="College.UniversityUCollege" FromRole="UCollege" ToRole="University" />
+    <Property Type="Int32" Name="UniversityId" Nullable="false" />
+  </EntityType>
+  <Association Name="UniversityUCollege">
+    <End Type="College.University" Role="University" Multiplicity="1" />
+    <End Type="College.UCollege" Role="UCollege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UCollege">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

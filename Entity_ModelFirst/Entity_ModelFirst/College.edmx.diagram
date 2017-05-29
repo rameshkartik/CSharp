@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fce7a2d37c874483b9c1182acd3dbe67" Name="Diagram1" >
+        <EntityTypeShape EntityType="College.University" Width="1.5" PointX="2" PointY="2.25" />
+        <EntityTypeShape EntityType="College.UCollege" Width="1.5" PointX="4.75" PointY="3.125" />
+        <AssociationConnector Association="College.UniversityUCollege" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
