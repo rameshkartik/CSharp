@@ -1,0 +1,14 @@
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\WorkingWithMsWord.exe.config
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\WorkingWithMsWord.exe
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\WorkingWithMsWord.pdb
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\Spire.Doc.dll
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\Spire.Pdf.dll
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\Spire.License.dll
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\Spire.Doc.xml
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\bin\Debug\Spire.License.xml
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.Form1.resources
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.Properties.Resources.resources
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.csproj.GenerateResource.Cache
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.exe
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.pdb
+G:\RameshKartik\Tech\C# Samples\SpireDoc\WorkingWithMsWord\WorkingWithMsWord\obj\Debug\WorkingWithMsWord.csprojResolveAssemblyReference.cache
