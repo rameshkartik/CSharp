@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EmployeeModelStoreContainer">
+    <EntitySet Name="Department" EntityType="EmployeeModel.Store.Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="EmployeeModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Employee__DEPTNO__5C37ACAD" Association="EmployeeModel.Store.FK__Employee__DEPTNO__5C37ACAD">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="20" />
+    <Property Name="Location" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpNo" />
+    </Key>
+    <Property Name="EmpNo" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="20" />
+    <Property Name="Job" Type="varchar" MaxLength="20" />
+    <Property Name="Mgr" Type="int" />
+    <Property Name="Hiredate" Type="date" />
+    <Property Name="Sal" Type="money" />
+    <Property Name="Comm" Type="money" />
+    <Property Name="DEPTNO" Type="int" />
+  </EntityType>
+  <Association Name="FK__Employee__DEPTNO__5C37ACAD">
+    <End Role="Department" Type="EmployeeModel.Store.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="EmployeeModel.Store.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DEPTNO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

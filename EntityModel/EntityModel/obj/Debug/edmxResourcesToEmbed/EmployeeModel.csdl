@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EmployeeDBContext3" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="EmployeeModel.Department" />
+    <EntitySet Name="Employees" EntityType="EmployeeModel.Employee" />
+    <AssociationSet Name="FK__Employee__DEPTNO__5C37ACAD" Association="EmployeeModel.FK__Employee__DEPTNO__5C37ACAD">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Location" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Employees" Relationship="EmployeeModel.FK__Employee__DEPTNO__5C37ACAD" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpNo" />
+    </Key>
+    <Property Name="EmpNo" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Job" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Mgr" Type="Int32" />
+    <Property Name="Hiredate" Type="DateTime" Precision="0" />
+    <Property Name="Sal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Comm" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DEPTNO" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="EmployeeModel.FK__Employee__DEPTNO__5C37ACAD" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK__Employee__DEPTNO__5C37ACAD">
+    <End Role="Department" Type="EmployeeModel.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="EmployeeModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DEPTNO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
