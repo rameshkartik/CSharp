@@ -1,0 +1,6 @@
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\bin\Debug\Linq.exe.config
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\bin\Debug\Linq.exe
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\bin\Debug\Linq.pdb
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\obj\Debug\Linq.exe
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\obj\Debug\Linq.pdb
+G:\RameshKartik\Tech\C# Samples\Linq\Linq\obj\Debug\Linq.csprojResolveAssemblyReference.cache
